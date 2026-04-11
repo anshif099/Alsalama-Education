@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import { GraduationCap, BrainCircuit, Briefcase, ShieldCheck, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/alsalama-logo.png";
 import { database } from "@/lib/firebase";
@@ -86,12 +87,22 @@ const Index = () => {
       </div>
 
       {/* Header */}
-      <header className="relative z-10 flex flex-col items-center px-4 pt-8 pb-2 md:pt-12">
+      <motion.header 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative z-10 flex flex-col items-center px-4 pt-8 pb-2 md:pt-12"
+      >
         <img src={logo} alt="Alsalama Education" className="h-14 w-auto max-w-[80%] object-contain md:h-20" />
-      </header>
+      </motion.header>
 
       {/* Hero */}
-      <section className="relative z-10 mx-auto max-w-3xl px-4 pt-6 pb-4 text-center md:pt-10">
+      <motion.section 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="relative z-10 mx-auto max-w-3xl px-4 pt-6 pb-4 text-center md:pt-10"
+      >
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground md:text-5xl">
           Build Your Future in Healthcare
           <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -102,20 +113,25 @@ const Index = () => {
           Nationally recognized programs with guaranteed placement support, industry certifications, and career-focused training.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Badge className="gap-1.5 rounded-full border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/15">
+          <Badge className="gap-1.5 rounded-full border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/15 transition-colors">
             <BrainCircuit className="h-4 w-4" /> AI Integrated
           </Badge>
-          <Badge className="gap-1.5 rounded-full border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/15">
+          <Badge className="gap-1.5 rounded-full border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/15 transition-colors">
             <Briefcase className="h-4 w-4" /> Career Focused
           </Badge>
-          <Badge className="gap-1.5 rounded-full border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/15">
+          <Badge className="gap-1.5 rounded-full border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary hover:bg-primary/15 transition-colors">
             <ShieldCheck className="h-4 w-4" /> Certified Programs
           </Badge>
         </div>
-      </section>
+      </motion.section>
 
       {/* Form Card */}
-      <section className="relative z-10 mx-auto max-w-xl px-4 py-8 md:py-12">
+      <motion.section 
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="relative z-10 mx-auto max-w-xl px-4 py-8 md:py-12"
+      >
         <form
           onSubmit={handleSubmit}
           className="rounded-2xl border border-border/60 bg-card/80 p-6 shadow-xl shadow-primary/5 backdrop-blur-lg md:p-10"
@@ -215,10 +231,16 @@ const Index = () => {
             {submitting ? "Submitting..." : "Apply Now"}
           </Button>
         </form>
-      </section>
+      </motion.section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-border/50 bg-card/50 py-8 backdrop-blur-sm">
+      <motion.footer 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="relative z-10 border-t border-border/50 bg-card/50 py-8 backdrop-blur-sm"
+      >
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 text-center text-sm text-muted-foreground">
           <img src={logo} alt="Alsalama Education" className="h-10 w-auto opacity-70" />
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
@@ -236,7 +258,7 @@ const Index = () => {
             © {new Date().getFullYear()} Alsalama Education. All rights reserved.
           </p>
         </div>
-      </footer>
+      </motion.footer>
     </div>
   );
 };
