@@ -14,6 +14,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, BrainCircuit, Briefcase, ShieldCheck, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/alsalama-logo.png";
+import { database } from "@/lib/firebase";
+import { ref, push, serverTimestamp } from "firebase/database";
 
 const courses = [
   "B.Sc Optometry [with AI application] – 4 years (8 sem) + 1 year internship",
@@ -44,7 +46,7 @@ const Index = () => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim() || !form.email.trim() || !form.course) {
       toast.error("Please fill in all required fields.");
@@ -55,11 +57,22 @@ const Index = () => {
       return;
     }
     setSubmitting(true);
-    setTimeout(() => {
+    
+    try {
+      const submissionsRef = ref(database, 'submissions');
+      await push(submissionsRef, {
+        ...form,
+        createdAt: serverTimestamp()
+      });
+      
       toast.success("Application submitted successfully! We'll contact you soon.");
       setForm({ name: "", phone: "", email: "", location: "", course: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Something went wrong. Please try again later.");
+    } finally {
       setSubmitting(false);
-    }, 1200);
+    }
   };
 
   return (
