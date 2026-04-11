@@ -180,7 +180,7 @@ const Index = () => {
             <div>
               <Label htmlFor="course">Select Course *</Label>
               <Select value={form.course} onValueChange={(v) => handleChange("course", v)}>
-                <SelectTrigger className="mt-1">
+                <SelectTrigger id="course" className="mt-1">
                   <SelectValue placeholder="Choose a course" />
                 </SelectTrigger>
                 <SelectContent>
