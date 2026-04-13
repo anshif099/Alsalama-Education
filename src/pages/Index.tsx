@@ -244,8 +244,11 @@ const Index = () => {
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-4 text-center text-sm text-muted-foreground">
           <img src={logo} alt="Alsalama Education" className="h-10 w-auto opacity-70" />
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-            <a href="tel:+919920884903" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer">
-              <Phone className="h-4 w-4" /> +919920884903
+            <a href="tel:+919447772702" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer">
+              <Phone className="h-4 w-4" /> +91 94477 72702
+            </a>
+            <a href="tel:+918136887774" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer">
+              <Phone className="h-4 w-4" /> +91 81368 87774
             </a>
             <a href="mailto:info@alsalamasafety.com" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer">
               <Mail className="h-4 w-4" /> info@alsalamasafety.com
