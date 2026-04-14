@@ -250,8 +250,8 @@ const Index = () => {
             <a href="tel:+918136887774" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer">
               <Phone className="h-4 w-4" /> +91 81368 87774
             </a>
-            <a href="mailto:info@alsalamasafety.com" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer">
-              <Mail className="h-4 w-4" /> info@alsalamasafety.com
+            <a href="mailto:edualsalama@gmail.com" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer">
+              <Mail className="h-4 w-4" /> edualsalama@gmail.com
             </a>
             <a href="https://maps.app.goo.gl/3we4QzqsF4jYxs7JA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 hover:text-primary transition-colors cursor-pointer text-center">
               <MapPin className="h-4 w-4 shrink-0" /> Al Salama College of Optometry Perinthalmanna
